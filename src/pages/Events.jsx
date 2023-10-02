@@ -1,8 +1,14 @@
 import React from 'react';
+import EventItem from '../components/EventItem';
+import styles from './Events.module.css';
 
-function Events() {
+function Events({ events }) {
   return (
-    <div>Events</div>
+    <div className={styles.events}>
+      {events.map((event) => (
+        <EventItem key={event.id} event={event} />
+      ))}
+    </div>
   );
 }
 

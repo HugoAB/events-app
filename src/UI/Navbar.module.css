@@ -1,0 +1,25 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 30px;
+	border-bottom: 1px solid #F2F3F4;
+}
+
+.logo {
+	font-size: 12px;
+}
+
+.navbar {
+	display: flex;
+	gap: 18px;
+}
+
+.navbar a:hover {
+	color: rgba(118, 74, 188, 0.8);
+}
+
+a {
+	text-decoration: none;
+	color: #764ABC;
+}
