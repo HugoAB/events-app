@@ -1,0 +1,43 @@
+.login {
+	width: 340px;
+	max-width: 90%;
+	margin: 0 auto;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translateY(-40%) translateX(-50%);
+}
+
+.formField {
+	margin-bottom: 20px;
+}
+
+.formField label span {
+	display: block;
+	margin-bottom: 4px;
+}
+
+input {
+	color: #222222;
+	border-radius: 5px;
+	border: 1px solid lightgray;
+	outline: none;
+	height: 34px;
+	width: 100%;
+	padding: 6px;
+	font-size: 16px;
+}
+
+input:focus {
+	box-shadow: 0 0 7px #764ABC;
+}
+
+.login button {
+	border: 1px solid #764ABC;
+	border-radius: 5px;
+	background-color: #764ABC;
+	color: #FFF;
+	font-weight: 700;
+	padding: 10px 20px;
+	cursor: pointer;
+}
