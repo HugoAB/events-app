@@ -1,9 +1,9 @@
 .imgContainer {
-	border-radius: 10px;
 	position: relative;
 	overflow: hidden;
 	max-width: 320px;
 	z-index: 1;
+	border-radius: 10px;
 }
 
 .imgContainer::after {
@@ -23,7 +23,6 @@
 	transition: .5s ease all;
 	width: 100%;
 	object-fit: cover;
-	margin-bottom: 12px;
 }
 
 .imgContainer:hover img {
@@ -37,4 +36,28 @@
 .title {
 	font-weight: 700;
 	font-size: 18px;
+}
+
+.item div {
+	margin-bottom: 8px;
+}
+
+@media (max-width: 720px) {
+	.item {
+		max-width: 80%;
+	}
+
+	.imgContainer {
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 480px) {
+	.item {
+		max-width: 90%;
+	}
+
+	.imgContainer {
+		max-width: 100%;
+	}
 }

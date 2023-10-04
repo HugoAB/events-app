@@ -21,5 +21,6 @@ module.exports = {
     'linebreak-style': 0,
     'react/prop-types': 'off',
     'react/self-closing-comp': 'off',
+    'indent': 'off'
   },
 };

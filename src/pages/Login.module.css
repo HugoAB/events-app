@@ -1,11 +1,14 @@
+.formContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 .login {
 	width: 340px;
 	max-width: 90%;
-	margin: 0 auto;
-	position: absolute;
-	top: 40%;
-	left: 50%;
-	transform: translateY(-40%) translateX(-50%);
+	margin-top: 60px;
 }
 
 .formField {
@@ -40,4 +43,18 @@ input:focus {
 	font-weight: 700;
 	padding: 10px 20px;
 	cursor: pointer;
+}
+
+.login button:hover {
+	background-color: #FFF;
+	color: #764ABC;
+}
+
+.formContainer p {
+	font-size: 14px;
+	margin-top: 20px;
+}
+
+.formContainer p a {
+	margin-left: 6px;
 }

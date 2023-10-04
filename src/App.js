@@ -4,6 +4,7 @@ import Events from './pages/Events';
 import Navbar from './UI/Navbar';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Register from './pages/Register';
 
 const dummyEvents = [
   {
@@ -58,6 +59,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<Events events={dummyEvents} />} />
         <Route path="/sign-in" element={<Login />} />
+        <Route path="/sign-up" element={<Register />} />
       </Routes>
     </Router>
   );

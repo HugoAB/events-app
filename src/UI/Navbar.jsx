@@ -9,6 +9,10 @@ function Navbar() {
     setShowMenu(!showMenu);
   };
 
+  const closeMenu = () => {
+    setShowMenu(false);
+  };
+
   const hamburgerMenuClasses = showMenu
     ? `${styles.hamburger} ${styles.hamburgerActive}`
     : `${styles.hamburger}`;
@@ -23,12 +27,20 @@ function Navbar() {
         <h1>Amazing Events</h1>
       </Link>
       <nav className={navbarClasses}>
-        <div>
-          <Link to="/">Home</Link>
-          <Link to="/events">Our Events</Link>
-          <Link to="/new-event">Add New Event</Link>
-          <Link to="/sign-in">Sign In</Link>
-        </div>
+        <ul>
+          <li>
+            <Link to="/" onClick={closeMenu}>Home</Link>
+          </li>
+          <li>
+            <Link to="/events" onClick={closeMenu}>Our Events</Link>
+          </li>
+          <li>
+            <Link to="/new-event" onClick={closeMenu}>Add New Event</Link>
+          </li>
+          <li>
+            <Link to="/sign-in" onClick={closeMenu}>Sign In</Link>
+          </li>
+        </ul>
       </nav>
       <button type="button" className={hamburgerMenuClasses} onClick={showMenuHandler}>
         <span></span>

@@ -13,3 +13,17 @@
 	font-size: 20px;
 	margin: 18px 0;
 }
+
+@media (max-width: 480px) {
+	.title {
+		font-size: 36px;
+	}
+
+	.home p {
+		font-size: 16px;
+	}
+
+	.home a {
+		font-size: 14px;
+	}
+}

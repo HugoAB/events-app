@@ -14,7 +14,7 @@
 	}
 }
 
-@media (max-width: 720px) {
+@media (max-width: 745px) {
 	.events {
 		max-width: 90%;
 		flex-direction: column;

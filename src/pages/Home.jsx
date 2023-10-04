@@ -7,7 +7,7 @@ function Home() {
     <section className={styles.home}>
       <h1 className={styles.title}>Welcome!</h1>
       <p>Browse all our amazing events!</p>
-      <Link to="/events">See Events Available</Link>
+      <Link to="/events">See Our Available Events</Link>
     </section>
   );
 }
