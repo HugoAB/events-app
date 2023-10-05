@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { FaGoogle } from 'react-icons/fa';
 import { auth, logInWithEmailAndPassword, signInWithGoogle } from '../firebase';
 import styles from './Login.module.css';
 
@@ -53,8 +54,22 @@ function Login() {
             />
           </label>
         </div>
-        <button type="submit" onClick={() => logInWithEmailAndPassword(email, password)}>Sign In</button>
-        <button type="submit" onClick={signInWithGoogle}>Login with Google</button>
+        <div className={styles.buttons}>
+          <button
+            type="submit"
+            onClick={() => logInWithEmailAndPassword(email, password)}
+          >
+            Sign In
+          </button>
+          <button
+            type="submit"
+            className={styles.loginGoogle}
+            onClick={signInWithGoogle}
+          >
+            <FaGoogle />
+            Login with Google
+          </button>
+        </div>
       </div>
       <p>
         Do not have an account?

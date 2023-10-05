@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth, logout } from '../firebase';
 import styles from './Navbar.module.css';
 
 function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
+  const [user] = useAuthState(auth);
+  const navigate = useNavigate();
 
   const showMenuHandler = () => {
     setShowMenu(!showMenu);
   };
 
   const closeMenu = () => {
+    setShowMenu(false);
+  };
+
+  const logoutFunc = () => {
+    logout();
+    navigate('/sign-in');
     setShowMenu(false);
   };
 
@@ -38,7 +48,11 @@ function Navbar() {
             <Link to="/new-event" onClick={closeMenu}>Add New Event</Link>
           </li>
           <li>
-            <Link to="/sign-in" onClick={closeMenu}>Sign In</Link>
+            {!user ? (
+              <Link to="/sign-in" onClick={closeMenu}>Sign In</Link>
+            ) : (
+              <button className={styles.logoutBtn} type="button" onClick={logoutFunc}>Logout</button>
+            )}
           </li>
         </ul>
       </nav>

@@ -7,7 +7,7 @@
 
 .login {
 	width: 340px;
-	max-width: 90%;
+	max-width: 85%;
 	margin-top: 60px;
 }
 
@@ -35,6 +35,10 @@ input:focus {
 	box-shadow: 0 0 7px #764ABC;
 }
 
+.buttons {
+    display: flex;
+}
+
 .login button {
 	border: 1px solid #764ABC;
 	border-radius: 5px;
@@ -57,4 +61,37 @@ input:focus {
 
 .formContainer p a {
 	margin-left: 6px;
+}
+
+.login button.loginGoogle {
+    margin-left: 10px;
+    background-color: #4285F4;
+    border-color: #4285F4;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 14px;
+}
+
+.login button.loginGoogle:hover {
+    background-color: #FFF;
+    color: #4285F4;
+}
+
+@media (max-width: 480px) {
+    .buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .login button {
+        display: block;
+        width: 100%;
+    }
+
+    .login button.loginGoogle {
+        margin-left: 0;
+        align-items: center;
+        justify-content: center;
+    }
 }

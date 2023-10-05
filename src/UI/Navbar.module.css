@@ -17,16 +17,28 @@
 
 ul {
 	list-style: none;
+	display: flex;
+	align-items: center;
 }
 
 .navbar a:hover {
 	color: rgba(118, 74, 188, 0.8);
 }
 
+.logoutBtn {
+	background-color: #764ABC;
+	color: #FFF;
+	padding: 8px;
+	border: 1px solid #764ABC;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
 a {
 	text-decoration: none;
 	color: #764ABC;
 }
+
 
 .hamburger span {
 	display: block;
