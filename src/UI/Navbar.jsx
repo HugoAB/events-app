@@ -42,7 +42,7 @@ function Navbar() {
             <Link to="/" onClick={closeMenu}>Home</Link>
           </li>
           <li>
-            <Link to="/events" onClick={closeMenu}>Our Events</Link>
+            <Link to="/events" onClick={closeMenu}>All Events</Link>
           </li>
           <li>
             <Link to="/new-event" onClick={closeMenu}>Add New Event</Link>
