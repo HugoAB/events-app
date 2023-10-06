@@ -15,7 +15,7 @@ function EventItem({ event }) {
         </p>
         <p className={styles.date}>
           <span>Date: </span>
-          {event.date}
+          {new Date(event.date.seconds * 1000).toLocaleDateString('en-US')}
         </p>
       </div>
     </div>

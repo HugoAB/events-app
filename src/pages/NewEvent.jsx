@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './NewEvent.module.css';
 
 function NewEvent({ addNewEvent }) {
@@ -6,6 +7,7 @@ function NewEvent({ addNewEvent }) {
   const [location, setLocation] = useState('');
   const [dateTime, setDateTime] = useState('');
   const [image, setImage] = useState('');
+  const navigate = useNavigate();
 
   const titleChangeHandler = (e) => {
     setTitle(e.target.value);
@@ -28,7 +30,7 @@ function NewEvent({ addNewEvent }) {
     const newEvent = {
       title,
       location,
-      dateTime,
+      date: dateTime,
       image,
     };
     addNewEvent(newEvent);
@@ -36,6 +38,7 @@ function NewEvent({ addNewEvent }) {
     setLocation('');
     setDateTime('');
     setImage('');
+    navigate('/events');
   };
 
   return (
