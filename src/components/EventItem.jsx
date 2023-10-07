@@ -15,7 +15,11 @@ function EventItem({ event }) {
         </p>
         <p className={styles.date}>
           <span>Date: </span>
-          {event.date}
+          {new Date(event.dateTime).toLocaleDateString()}
+        </p>
+        <p className={styles.date}>
+          <span>Time: </span>
+          {`${new Date(event.dateTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} hs`}
         </p>
       </div>
     </div>
