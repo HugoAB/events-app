@@ -9,14 +9,60 @@ import Register from './pages/Register';
 import NewEvent from './pages/NewEvent';
 import { db } from './firebase';
 
+// const dummyEvents = [
+//   {
+//     id: 1,
+//     title: 'Olimpia vs Libertad',
+//     image: 'https://media.tycsports.com/files/2023/03/19/546839/olimpia-libertad-resultado-goles-y-resumen-del-partido_862x485_wmk.webp',
+//     location: 'Asuncion, Paraguay',
+//     date: '12-12-2005',
+//   },
+//   {
+//     id: 2,
+//     title: 'Olimpia vs Cerro Porteño',
+//     image: 'https://media.tycsports.com/files/2021/04/20/260970/cerro-porteno-reibe-a-olimpia-para-disputar-el-superclasico_862x485.jpg',
+//     location: 'Asuncion, Paraguay',
+//     date: '28-12-2005',
+//   },
+//   {
+//     id: 3,
+//     title: 'Olimpia vs Cerro Porteño',
+//     image: 'https://media.tycsports.com/files/2021/04/20/260970/cerro-porteno-reibe-a-olimpia-para-disputar-el-superclasico_862x485.jpg',
+//     location: 'Asuncion, Paraguay',
+//     date: '28-12-2005',
+//   },
+//   {
+//     id: 4,
+//     title: 'Olimpia vs Cerro Porteño',
+//     image: 'https://media.tycsports.com/files/2021/04/20/260970/cerro-porteno-reibe-a-olimpia-para-disputar-el-superclasico_862x485.jpg',
+//     location: 'Asuncion, Paraguay',
+//     date: '28-12-2005',
+//   },
+//   {
+//     id: 5,
+//     title: 'Olimpia vs Cerro Porteño',
+//     image: 'https://media.tycsports.com/files/2021/04/20/260970/cerro-porteno-reibe-a-olimpia-para-disputar-el-superclasico_862x485.jpg',
+//     location: 'Asuncion, Paraguay',
+//     date: '28-12-2005',
+//   },
+//   {
+//     id: 6,
+//     title: 'Olimpia vs Cerro Porteño',
+//     image: 'https://media.tycsports.com/files/2021/04/20/260970/cerro-porteno-reibe-a-olimpia-para-disputar-el-superclasico_862x485.jpg',
+//     location: 'Asuncion, Paraguay',
+//     date: '28-12-2005',
+//   },
+// ];
+
 function App() {
   const [events, setEvents] = useState([]);
 
   const fetchEvents = async () => {
     await getDocs(collection(db, 'events'))
-      .then((results) => {
-        const newData = results.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      .then((querySnapshot) => {
+        const newData = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
         setEvents(newData);
+        console.log(newData);
       });
   };
 
