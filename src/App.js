@@ -13,17 +13,16 @@ function App() {
   const [events, setEvents] = useState([]);
 
   const fetchEvents = async () => {
-    const eventsData = await getDocs(collection(db, 'events'));
-    setEvents(eventsData.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    await getDocs(collection(db, 'events'))
+      .then((querySnapshot) => {
+        const newData = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+        setEvents(newData);
+      });
   };
 
   useEffect(() => {
     fetchEvents();
   }, []);
-
-  const addEvent = (event) => {
-    console.log(event);
-  };
 
   return (
     <Router>
@@ -33,7 +32,7 @@ function App() {
         <Route path="/events" element={<Events events={events} />} />
         <Route path="/sign-in" element={<Login />} />
         <Route path="/sign-up" element={<Register />} />
-        <Route path="/new-event" element={<NewEvent addNewEvent={addEvent} />} />
+        <Route path="/new-event" element={<NewEvent />} />
       </Routes>
     </Router>
   );

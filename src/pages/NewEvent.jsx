@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { addDoc, collection } from 'firebase/firestore';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import styles from './NewEvent.module.css';
+import { db, auth } from '../firebase';
 
-function NewEvent({ addNewEvent }) {
+function NewEvent() {
   const [title, setTitle] = useState('');
   const [location, setLocation] = useState('');
-  const [date, setDate] = useState('');
+  const [dateTime, setDateTime] = useState('');
   const [image, setImage] = useState('');
   const navigate = useNavigate();
+  const [user] = useAuthState(auth);
 
   const titleChangeHandler = (e) => {
     setTitle(e.target.value);
@@ -17,32 +21,55 @@ function NewEvent({ addNewEvent }) {
     setLocation(e.target.value);
   };
 
-  const dateChangeHandler = (e) => {
-    setDate(e.target.value);
+  const dateTimeChangeHandler = (e) => {
+    setDateTime(e.target.value);
   };
 
   const imageChangeHandler = (e) => {
     setImage(e.target.value);
   };
 
-  const formSubmitHandler = (e) => {
+  const addEvent = async (e) => {
     e.preventDefault();
-    const newEvent = {
-      title,
-      location,
-      date: new Date(date),
-      image,
-    };
-    addNewEvent(newEvent);
-    setTitle('');
-    setLocation('');
-    setDate('');
-    setImage('');
-    navigate('/events');
+    try {
+      const docRef = await addDoc(collection(db, 'events'), {
+        title,
+        location,
+        dateTime,
+        image,
+      });
+      console.log(docRef.id);
+      setTitle('');
+      setLocation('');
+      setDateTime('');
+      setImage('');
+      navigate('/events');
+      navigate(0);
+    } catch (error) {
+      //
+    }
   };
 
+  const noUserStyles = {
+    textAlign: 'center',
+    marginTop: '80px',
+    fontSize: '16px',
+  };
+
+  if (!user) {
+    return (
+      <div style={noUserStyles}>
+        <p>You must be logged in to post an event!</p>
+        <p>
+          <Link to="/sign-in">Click here</Link>
+          <span> to Sign in</span>
+        </p>
+      </div>
+    );
+  }
+
   return (
-    <form onSubmit={formSubmitHandler} className={styles.newEvent}>
+    <form onSubmit={addEvent} className={styles.newEvent}>
       <h2>Add a New Event!</h2>
       <label htmlFor="title">
         <span>Title</span>
@@ -67,8 +94,8 @@ function NewEvent({ addNewEvent }) {
         <input
           type="datetime-local"
           id="date"
-          value={date}
-          onChange={dateChangeHandler}
+          value={dateTime}
+          onChange={dateTimeChangeHandler}
         />
       </label>
       <label htmlFor="image">

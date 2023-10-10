@@ -6,6 +6,26 @@
 	border-bottom: 1px solid #F2F3F4;
 }
 
+.header > div {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.userInfo {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.userInfo p {
+	font-size: 14px;
+}
+
+.userInfo img {
+	width: 26px;
+}
+
 .logo {
 	font-size: 12px;
 }
@@ -112,6 +132,6 @@ a {
 
 @media (max-width: 480px) {
 	.logo {
-		font-size: 10px;
+		font-size: 8px;
 	}
 }

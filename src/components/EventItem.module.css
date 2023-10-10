@@ -35,7 +35,8 @@
 
 .title {
 	font-weight: 700;
-	font-size: 18px;
+	font-size: 20px;
+	margin-bottom: 8px;
 }
 
 .item div {
