@@ -2,20 +2,22 @@ import React from 'react';
 import styles from './EventItem.module.css';
 
 function EventItem({ event }) {
+  const eventObj = event.event;
+
   return (
     <div className={styles.item}>
       <div className={styles.imgContainer}>
-        <img src={event.image} alt={event.title} />
+        <img src={eventObj.image} alt={eventObj.title} />
       </div>
       <div>
-        <p className={styles.title}>{event.title}</p>
+        <p className={styles.title}>{eventObj.title}</p>
         <p className={styles.location}>
           <span>Location: </span>
-          {event.location}
+          {eventObj.location}
         </p>
         <p className={styles.date}>
           <span>Date: </span>
-          {new Date(event.date.seconds * 1000).toLocaleDateString('en-US')}
+          {/* {new Date(event.date.seconds * 1000).toLocaleDateString('en-US')} */}
         </p>
       </div>
     </div>

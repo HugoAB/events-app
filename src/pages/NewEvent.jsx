@@ -5,7 +5,7 @@ import styles from './NewEvent.module.css';
 function NewEvent({ addNewEvent }) {
   const [title, setTitle] = useState('');
   const [location, setLocation] = useState('');
-  const [dateTime, setDateTime] = useState('');
+  const [date, setDate] = useState('');
   const [image, setImage] = useState('');
   const navigate = useNavigate();
 
@@ -17,8 +17,8 @@ function NewEvent({ addNewEvent }) {
     setLocation(e.target.value);
   };
 
-  const dateTimeChangeHandler = (e) => {
-    setDateTime(e.target.value);
+  const dateChangeHandler = (e) => {
+    setDate(e.target.value);
   };
 
   const imageChangeHandler = (e) => {
@@ -30,13 +30,13 @@ function NewEvent({ addNewEvent }) {
     const newEvent = {
       title,
       location,
-      date: dateTime,
+      date: new Date(date),
       image,
     };
     addNewEvent(newEvent);
     setTitle('');
     setLocation('');
-    setDateTime('');
+    setDate('');
     setImage('');
     navigate('/events');
   };
@@ -63,12 +63,12 @@ function NewEvent({ addNewEvent }) {
         />
       </label>
       <label htmlFor="date">
-        <span>Date and Time</span>
+        <span>Date</span>
         <input
           type="datetime-local"
           id="date"
-          value={dateTime}
-          onChange={dateTimeChangeHandler}
+          value={date}
+          onChange={dateChangeHandler}
         />
       </label>
       <label htmlFor="image">
